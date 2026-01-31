@@ -86,4 +86,37 @@ Not successful if:
 
 ---
 
+## Proven Capabilities (What We've Built)
+
+### Programmatic Video Production Pipeline
+**Project**: Boltzmann Brain Explainer (completed Jan 2026)
+
+**Stack that works:**
+- **Remotion** - React-based video creation (code = video)
+- **gemini-imagen CLI** - AI image generation via `imagen generate "prompt" -o file.png`
+- **Edge TTS** - Free narration with `edge-tts --voice en-US-GuyNeural --file script.txt --write-media audio.mp3`
+- **Remotion Skills** - Best practices via `npx skills add remotion-dev/skills`
+
+**Workflow:**
+1. Write script with scene breakdowns
+2. Generate hero images with Gemini (`imagen generate`)
+3. Generate narration with Edge TTS (also outputs .vtt for timing)
+4. Build React scene components with animations
+5. Use `TransitionSeries` for scene transitions
+6. Render with `npx remotion render CompositionName out/video.mp4`
+
+**Key learnings:**
+- Kurzgesagt-style videos are achievable with this stack
+- Use VTT timestamps to sync visuals with narration
+- All animations must use `useCurrentFrame()` - no CSS transitions
+- Image generation: ~5-10 seconds per image with Gemini
+- Render time: ~3-5 minutes for a 3-minute video on M-series Mac
+
+**For future science videos (3Blue1Brown style):**
+- Consider adding: manim for math animations, D3.js for data viz
+- Remotion + React Three Fiber for 3D explanations
+- Build reusable component library for common visual patterns
+
+---
+
 **Remember**: This is a playground for the intellectually curious. Encourage experimentation, embrace failure, and always ask "what if we made this bigger?"
